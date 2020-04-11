@@ -13,5 +13,5 @@ jobs:
     - run: npm run scrape-definitions
     - run: bash --version
     - run: |
-        mapfile -t nodes <<(git ls-files --others --exclude-standard -- share/node-build)
+        mapfile -t nodes < <(git ls-files --others --exclude-standard -- share/node-build)
         echo ${nodes[@]##*/}
