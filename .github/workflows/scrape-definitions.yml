@@ -14,9 +14,7 @@ jobs:
     - run: bash --version
     - id: scraped
       run: |
-        echo "::[set-output name=nodes;]$(
-          git ls-files --others --exclude-standard -- share/node-build |
-            while read -r node; do
-              echo "- ${node##*/}"
-            done)"
+        nodes=$(git ls-files --others --exclude-standard -- share/node-build |
+            while read -r node; do echo "- ${node##*/}"; done)
+        echo "::set-output name=nodes::${nodes//$'\n'/'%0A'}"
     - run: echo ${{ steps.scraped.outputs.nodes }}
