@@ -1,6 +1,7 @@
 name: Generate Definitions
 on:
   schedule: [{ cron:  '*/1 * * * *' }] # every 4 hrs: https://crontab.guru/#0_*/4_*_*_*
+  push:
 
 jobs:
   scrape:
