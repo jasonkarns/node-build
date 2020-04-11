@@ -19,7 +19,6 @@ jobs:
         echo "::set-output name=nodes::${nodes//$'\n'/'%0A'}"
     - uses: peter-evans/create-pull-request@v2
       with:
-        token: ${{ secrets.REPO_TOKEN }}
         branch: node/next
         title: 'Latest node definitions'
         commit-message: |
